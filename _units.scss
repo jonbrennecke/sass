@@ -1,0 +1,28 @@
+@import "responsive";
+
+
+// set the font-size of the root element to "1dp"
+@mixin set-em-to-dp () {
+	@include respond-to( $mobile ) {
+		font-size: 0.5px !important;
+	}
+	@include respond-to( $mobile-large ) {
+		font-size: 1px !important;
+	}
+	@include respond-to( $tablet ) {
+		font-size: 1.5px !important;
+	}
+	@include respond-to( $desktop ) {
+		font-size: 2px !important;
+	}
+}
+
+
+@function dp ( $n ) {
+	@if unitless( $n ) {
+		@return $n * 1rem;
+	}
+	@else {
+		@warn "`#{$n}` should be unitless for `dp` calculation.";
+	}
+}

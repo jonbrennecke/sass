@@ -1,0 +1,50 @@
+
+/////////////////////////////////////////////////
+// Mixins for formatting text
+/////////////////////////////////////////////////
+
+// prevent text selection
+@mixin no-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+// hide overflowing text with an ellipsis
+@mixin overflow-ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+// reset a text input
+@mixin reset-input {
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	border: none;
+	outline: none;
+}
+
+// reset a textarea
+@mixin reset-textarea {
+	@include reset-input;
+	resize: none;
+	background: none;
+	font-size: inherit;
+}
+
+// shorthand to place an element on a new line
+@mixin line-break {
+	float: left;
+	clear: both;
+}
+
+// allow pointer events through an element
+@mixin click-through() {
+	pointer-events: none;
+	background: none !important;
+}

@@ -1,0 +1,38 @@
+
+// device breakpoints
+$break-s: 480px;
+$break-m: 640px;
+$break-ml: 768px;
+$break-l: 1024px;
+
+
+$max-width-name: max-width;
+$min-width-name: min-width;
+
+
+// media query shorthands
+$mobile-portrait: "screen and (#{$max-width-name}: #{$break-s}) and (orientation: portrait)"; // mobile phones portrait
+$mobile-landscape: "screen and (#{$max-width-name}: #{$break-m}) and (orientation: landscape)"; // mobile phone landscape
+$mobile: "screen and (#{$max-width-name}: #{$break-m})"; // mobile phone portrait or landscape
+$mobile-large: "screen and (#{$max-width-name}: #{$break-ml})"; // mobile phone portrait or landscape
+// $mobile-hdpi: "screen and (#{$max-width-name}: #{$break-s}) and (-webkit-min-device-pixel-ratio: 1.5)"; // iphone 4+
+// $mobile-hdpi: "screen and (#{$max-width-name}: #{$break-s}) and (moz--min-device-pixel-ratio: 1.5)"; // iphone 4+ (Mozilla)
+$tablet: "screen and (#{$min-width-name}: #{$break-ml}) and (#{$max-width-name}: #{$break-l})"; // tablet portrair or landscape
+$desktop: "screen and (#{$min-width-name}: #{$break-l})"; // desktops
+// @todo desktop-retina
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 
+// respond to device widths
+// 
+// @param media - one or more of the 'media query shorthands' above, in a list or as a variable.
+// 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@mixin respond-to($media) {
+	@each $device in $media {
+		@media #{$device} {
+			@content;
+		}
+	}
+}

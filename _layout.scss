@@ -1,0 +1,84 @@
+
+
+/////////////////////////////////////////////////
+// Mixins for layout
+/////////////////////////////////////////////////
+
+// use overflow: hidden to make a div with floating children 
+// aware of it's children's size
+@mixin overflow-float-fix {
+	position: relative;
+	overflow: hidden;
+}
+
+// shorthand to assign both width and height
+@mixin square($size) {
+	width: $size;
+	height: $size;
+}
+
+// makes floats take up space within a container
+@mixin float-fix {
+	position: relative;
+	overflow: hidden;
+}
+
+// inherit a parent element's origin
+@mixin inherit-parent-origin {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+}
+
+// inherit a parent element's origin and size
+@mixin inherit-parent-origin-and-size {
+	@include inherit-parent-origin;
+	height: 100%;
+	width: 100%;
+}
+
+// horizontally center an absolutely positioned element
+@mixin center-absolute-hz( $width ) {
+	position: absolute;
+	width: $width;
+	left: 50%;
+	margin-left: -($width / 2);
+}
+
+// vertically center an absolutely positioned element
+@mixin center-absolute-vert( $height ) {
+	position: absolute;
+	height: $height;
+	top: 50%;
+	margin-top: -($height / 2);
+}
+
+// vertically and horizontally center an absolutely positioned element
+@mixin center-absolute( $height, $width ) {
+	@include center-absolute-vert($height);
+	@include center-absolute-hz($width);
+}
+
+// horizontally center a relative positioned element
+@mixin center-relative-hz( $width ) {
+	position: relative;
+	width: $width;
+	margin: 0 auto;
+}
+
+// Apply content in the input placeholder selector
+@mixin placeholder() {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+	&:-moz-placeholder { // Firefox 18
+		@content;  
+	}
+	&::-moz-placeholder {  // Firefox 19+
+		@content; 
+	}
+	&:-ms-input-placeholder  {
+		@content;
+	}
+}
