@@ -37,6 +37,12 @@
 	font-size: inherit;
 }
 
+@mixin hide-empty-image {
+	&[src=""], &:not([src]) {
+		display: none;
+	}
+}
+
 // shorthand to place an element on a new line
 @mixin line-break {
 	float: left;

@@ -67,6 +67,31 @@
 	margin: 0 auto;
 }
 
+// vertically and horizontally center children elements
+@mixin center-children-vert {
+	// spacing ghost
+	&:before {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	// dialog modal
+	& > * {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+
+// vertically and horizontally center children elements
+@mixin center-children {
+	@include center-children-vert;
+	text-align: center;
+}
+
 // Apply content in the input placeholder selector
 @mixin placeholder() {
 	&::-webkit-input-placeholder {

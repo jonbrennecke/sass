@@ -93,8 +93,8 @@
 	width: 100vw;
 	top: 0;
 	left: 0;
-	text-align: center;
 	z-index: 1000;
+	@include center-children;
 
 	// darken the area behind the dialog
 	&:after {
@@ -107,23 +107,12 @@
 		background: rgba(#000,0.5);
 	}
 
-	// spacing ghost
-	&:before {
-		content: '';
-		display: inline-block;
-		height: 100%;
-		vertical-align: middle;
-	}
-
 	// dialog modal
 	& > * {
 		@include card;
 		box-shadow: 0px 0px 25px rgba(#000,0.1);
 		padding: dp(16);
 		z-index: 100000;
-		position: relative;
-		display: inline-block;
-		vertical-align: middle;
 	}
 }
 
@@ -220,6 +209,10 @@
 
 // call to action button
 @mixin flat-button ( $color ) {
+
+	&:not(:last-of-type) {
+		margin-right: dp(4);
+	}
 	
 	button {
 		@include circle-anim( $color, 300px );
@@ -232,9 +225,7 @@
 		font-weight: 300;
 		text-transform: uppercase;
 		border-radius: 2px;
-		margin: dp(4);
 		padding: dp(4) dp(8);
-
 	}
 
 	.fa {
