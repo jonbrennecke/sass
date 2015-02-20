@@ -19,12 +19,3 @@
 		@content;
 	} 
 }
-
-@include keyframes ( pulsate ) {
-	from {
-		@include transform(scale(1));
-	}
-	to {
-		@include transform(scale(1.5));
-	}
-}

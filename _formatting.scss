@@ -35,6 +35,9 @@
 	resize: none;
 	background: none;
 	font-size: inherit;
+	padding: 0;
+	white-space: pre-wrap;
+	word-wrap: break-word;
 }
 
 @mixin hide-empty-image {

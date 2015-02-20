@@ -107,3 +107,22 @@
 		@content;
 	}
 }
+
+// automatically make an element a square
+@mixin auto-square {
+
+	&:before {
+		position: relative;
+		margin-top: 100%;
+		content: '';
+		display: block;
+	}
+
+	& > * {
+		position: absolute !important;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	}
+}
