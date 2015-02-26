@@ -256,9 +256,12 @@
 
 	.fa {
 		font-size: 100%;
-		// margin-left: 0.5em;
 		line-height: 1;
 		vertical-align: baseline;
+	}
+
+	* + .fa {
+		margin-left: 0.5em;
 	}
 
 	// @todo styles for "confirm"
