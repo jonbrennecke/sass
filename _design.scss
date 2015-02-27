@@ -234,6 +234,10 @@
 	&:not(:last-of-type) {
 		margin-right: dp(4);
 	}
+
+	&.small button {
+		padding: dp(2) dp(4);
+	}
 	
 	button {
 		@include circle-anim( $color, 300px );
