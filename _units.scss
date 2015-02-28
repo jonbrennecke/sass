@@ -4,13 +4,13 @@
 // set the font-size of the root element to "1dp"
 @mixin set-em-to-dp () {
 	@include respond-to( $mobile ) {
-		font-size: 1px !important;
+		font-size: 4px !important;
 	}
 	@include respond-to( $mobile-large ) {
-		font-size: 1.5px !important;
+		font-size: 3.5px !important;
 	}
 	@include respond-to( $tablet ) {
-		font-size: 2px !important;
+		font-size: 3px !important;
 	}
 	@include respond-to( $desktop ) {
 		font-size: 2.5px !important;
