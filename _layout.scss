@@ -110,7 +110,8 @@
 
 // automatically make an element a square
 @mixin auto-square {
-	// overflow: hidden;
+	position: relative;
+	overflow: hidden;
 
 	&:before {
 		position: relative;
