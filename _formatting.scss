@@ -3,6 +3,14 @@
 // Mixins for formatting text
 /////////////////////////////////////////////////
 
+// reset a button
+@mixin reset-button {
+	background: none;
+	border: none;
+	outline: none;
+	padding: 0;
+}
+
 // prevent text selection
 @mixin no-select {
 	-webkit-touch-callout: none;
