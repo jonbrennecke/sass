@@ -4,12 +4,16 @@
 // Mixins for layout
 /////////////////////////////////////////////////
 
-// use overflow: hidden to make a div with floating children 
+// use to make a container with floating children 
 // aware of it's children's size
-@mixin overflow-float-fix {
-	position: relative;
-	overflow: hidden;
+@mixin clear-fix {
+	&:after {
+		content:"";
+		display:table;
+		clear:both;
+	}
 }
+
 
 // shorthand to assign both width and height
 @mixin square($size) {
@@ -17,10 +21,26 @@
 	height: $size;
 }
 
-// makes floats take up space within a container
-@mixin float-fix {
-	position: relative;
-	overflow: hidden;
+
+// Creates a triangle
+// 
+// @param $size - size with units
+// @param $color - color of the triangle
+// @param $direction - direction the triangle is facing (left, right, top, bottom)
+@mixin triangle ( $size, $color, $direction ) {
+	border: $size solid transparent;	
+	@if $direction == "top" {
+		border-bottom-color: $color;
+	}
+	@else if $direction == "bottom" {
+		border-top-color: $color;
+	}
+	@else if $direction == "left" {
+		border-right-color: $color;
+	}
+	@else if $direction == "right" {
+		border-left-color: $color;
+	}
 }
 
 // inherit a parent element's origin
@@ -67,8 +87,9 @@
 	margin: 0 auto;
 }
 
-// vertically and horizontally center children elements
-@mixin center-children-vert {
+// center a child element vertically
+@mixin center-child-vert ( $child ) {
+	
 	// spacing ghost
 	&:before {
 		content: '';
@@ -77,19 +98,29 @@
 		vertical-align: middle;
 	}
 
-	// dialog modal
-	& > * {
+	// centered element
+	& > #{$child} {
 		position: relative;
 		display: inline-block;
 		vertical-align: middle;
 	}
 }
 
-
 // vertically and horizontally center children elements
 @mixin center-children {
-	@include center-children-vert;
+	@include center-child-vert("*");
 	text-align: center;
+}
+
+// center a child element
+@mixin center-child ( $child ) {
+	@include center-child-vert( $child );
+	text-align: center;
+}
+
+// vertically and horizontally center children elements
+@mixin center-children-vert {
+	@include center-child-vert("*");
 }
 
 // Apply content in the input placeholder selector

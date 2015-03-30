@@ -1,0 +1,13 @@
+
+// the absolute top layer
+$top: 99999;
+
+$layers: (
+	"navbar":1000,
+	"hero":100
+);
+
+@mixin layer ( $name ) {
+	$layer: map-get($layers,$name);
+	z-index: $layer;
+}

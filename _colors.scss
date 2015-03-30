@@ -1,13 +1,16 @@
-
-/////////////////////////////////////////////////
 //
-// Colors
+// Color functions, definitions and mixins
+// 
+// @author Jon Brennecke
+// @copyright (c) Jon Brennecke 2015. All Rights Reserved.
+//
+
+
+//
+// Material Design Color Palette
 // 
 // @see http://www.google.com/design/spec/style/color.html#color-color-palette
 // 
-/////////////////////////////////////////////////
-
-
 
 $red: #F44336;
 $pink: #E91E63;
@@ -29,6 +32,61 @@ $brown: #795548;
 $grey: #9E9E9E;
 $dark-grey: #333;
 $blue-grey: #607D8B;
-
 $background: #fafafa;
-$dark-background: #333;
+
+
+//
+// Return either #000 or #fff based on the 
+// lightness of the color given as "$color".
+// Useful for determining a readable color for 
+// text given the text's background color as "$color".
+//
+@function color ( $color, $dark: #000, $light: #fff ) {
+	$lightness: lightness($color);
+	@if ( $lightness > 50% ) {
+		@return $dark;
+	}
+	@else { 
+		@return $light;
+	}
+}
+
+//
+// Official Brand Colors
+// 
+// @see http://brandcolors.net/
+// 
+
+$facebook-color: #3b5998;
+$google-plus-color: #dd4b39;
+$twitter-color: #55acee;
+$instagram-color: #3f729b;
+$behance-color: #1769ff;
+$dribbble-color: #ea4c89;
+$vine-color: #00b488;
+
+
+// a map of the brand colors, for easier use
+$social-media-brand-colors: (
+	"facebook": $facebook-color,
+	"google-plus": $google-plus-color,
+	"twitter": $twitter-color,
+	"instagram": $instagram-color,
+	"behance": $behance-color,
+	"dribbble": $dribbble-color,
+	"vine": $vine-color
+);
+
+// 
+// Assign color, or background-color
+// 
+@mixin social-color {
+	@each $brand, $color  in $social-media-brand-colors {
+		&.bg-#{$brand} {
+			background-color: $color; 
+		}
+		&.clr-#{$brand} {
+			color: $color; 
+		}
+	}
+}

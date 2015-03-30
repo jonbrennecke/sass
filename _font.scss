@@ -1,9 +1,17 @@
 
 @import url("http://fonts.googleapis.com/css?family=Roboto:400,300,100");
+@import url("http://fonts.googleapis.com/css?family=Lobster");
 
 @mixin font {
 	font-family: Roboto, sans-serif;
-	font-weight: 300;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin header-font {
+	font-family: Lobster, cursive;
+	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
