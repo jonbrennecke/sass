@@ -143,6 +143,7 @@
 @mixin auto-square {
 	position: relative;
 	overflow: hidden;
+	display: block;
 
 	&:before {
 		position: relative;
